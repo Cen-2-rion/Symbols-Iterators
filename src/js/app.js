@@ -5,13 +5,14 @@ export default class Team {
   }
 
   [Symbol.iterator]() {
-    const index = 0;
+    let index = 0;
 
+    // обратить внимание, индекс первого персонажа при вызове next() равен 1, а не 0, как в массиве
     return {
       next: () => {
         if (index < this.characters.length) {
           return {
-            value: this.characters[index + 1],
+            value: this.characters[index++],
             done: false,
           };
         }
